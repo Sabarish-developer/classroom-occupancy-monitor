@@ -1,0 +1,19 @@
+# Root .gitignore
+
+# Node.js stuff
+node_modules/
+.env
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+
+# Docker
+*.local
+docker-compose.override.yml
+
+#keys
+**/keys/
