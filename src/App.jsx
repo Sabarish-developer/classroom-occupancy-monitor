@@ -1,5 +1,4 @@
 import { AppLayout } from "./layouts/app-layout";
-
 import {Landing} from './pages/landing';
 import {Dashboard} from './pages/dashboard';
 
