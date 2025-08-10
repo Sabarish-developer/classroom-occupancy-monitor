@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/use-auth";
 export const Dashboard = () => {
 
     const {user} = useAuth();
-    return <div>
+    return <div >
         dashboard
         <div>
             {JSON.stringify(user)}

@@ -6,7 +6,7 @@ export const AppLayout = () => {
     return (
         <div>
             <Toaster position='top-center' reverseOrder={false}/>
-            <main className="min-h-screen">
+            <main className="min-h-screen max-w-screen overflow-x-hidden">
                 <Header />
                 <Outlet />
             </main>

@@ -5,6 +5,8 @@ import {useAuth} from '../hooks/use-auth.js';
 import { useNavigate } from "react-router-dom";
 import { logout } from "../services/api.js";
 import { CircleUserRound, LogOut, HatGlasses } from "lucide-react";
+import occupixLogo from '../assets/occupix.png';
+import googleLogo from '../assets/google.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +34,7 @@ export const Header = () => {
     return (
         <nav className="flex justify-between items-center p-4 sticky top-0 shadow-xs">
             <Link className="flex items-center justify-start lg:pl-8">
-                <img src='occupix.png' alt="OccupiX-logo" className="h-10"></img>
+                <img src={occupixLogo} alt="OccupiX-logo" className="h-10"></img>
                 <div className="text-sm md:text-base lg:text-xl font-bold ml-2">OccupiX</div>
             </Link>
             <div>
@@ -41,7 +43,7 @@ export const Header = () => {
                     ?
                     <div className="lg:pr-8">
                         <Button className='cursor-pointer' onClick={handleGoogleLogin}>
-                        <img src='google.png' alt='Google logo' className="h-5"></img>
+                        <img src={googleLogo} alt='Google logo' className="h-5"></img>
                         Login / Signup
                         </Button>
                     </div>
