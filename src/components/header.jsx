@@ -1,8 +1,9 @@
 import {Button} from "../components/ui/button";
 import { Link } from "react-router-dom";
+import { config } from "../config/config.js";
 
 const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${config.authServiceUrl}/google`;
 }
 
 export const Header = () => {

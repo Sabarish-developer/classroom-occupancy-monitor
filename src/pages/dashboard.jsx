@@ -1,4 +1,4 @@
-import { useAuth } from "../context"
+import { useAuth } from "../hooks/use-auth";
 
 export const Dashboard = () => {
 

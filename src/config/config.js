@@ -1,12 +1,5 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-dotenv.config({path: path.resolve(__dirname, '../../../.env')});
-
+// env variables
 export const config = {
-    authServiceUrl: config.AUTH_SERVICE_URL
+    apiBaseUrl: import.meta.env.VITE_API_BASE_URL,
+    authServiceUrl: import.meta.env.VITE_AUTH_SERVICE_URL
 }
