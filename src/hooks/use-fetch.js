@@ -5,7 +5,7 @@ export const useFetch = (url, options={}, refreshInterval=null) => {
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
 
@@ -15,7 +15,10 @@ export const useFetch = (url, options={}, refreshInterval=null) => {
 
             try{
                 setLoading(true);
-                const res = await axios.get(url, options);
+                const res = await axios.get(url,{
+                    ...options,
+                    withCredentials: true
+                });
                 if(isMounted){
                     setData(res.data);
                     setError(null);
@@ -46,7 +49,7 @@ export const useFetch = (url, options={}, refreshInterval=null) => {
             if(intervalId) clearInterval(intervalId);
         }
 
-    }, [url, options, refreshInterval])
+    }, [url])
 
     return {data, error, loading};
 }
