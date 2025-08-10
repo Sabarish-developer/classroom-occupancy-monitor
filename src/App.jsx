@@ -1,6 +1,7 @@
 import { AppLayout } from "./layouts/app-layout";
 import {Landing} from './pages/landing';
 import {Dashboard} from './pages/dashboard';
+import { LoginCallback } from "./components/login-callback";
 
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router";
@@ -12,6 +13,7 @@ const router = createBrowserRouter([{
   element: <AppLayout />,
   children: [
     {path: "/", element: <Landing />},
+    {path: "/login/callback", element: <LoginCallback />},
     {path: "/dashboard", element: <RequireAuth> <Dashboard /> </RequireAuth>}
   ]
 }])
