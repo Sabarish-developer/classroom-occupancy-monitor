@@ -7,10 +7,15 @@ import passport from 'passport';
 import './utils/passport.js';
 import jwksRouter from './routes/jwks-routes.js';
 import rateLimiter from './utils/rate-limiters.js';
+import cors from 'cors';
 
 const app = express();
 
 // Security middleware cors,helmet to be added
+app.use(cors({
+    origin: config.frontendBaseUrl,
+    credentials: true
+}));
 
 // Parsing middleware
 app.use(cookieParser());
@@ -20,7 +25,7 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // Routes with rate limiter
-app.use('/api/auth', rateLimiter, router);
+app.use('/api/auth', router);
 app.use('/', rateLimiter, jwksRouter);
 
 // Error handling middleware

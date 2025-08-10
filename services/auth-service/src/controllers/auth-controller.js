@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from "url";
-import { resolveSoa } from "dns";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +25,7 @@ export const googleCallbackHandler = async(req, res) => {
         path: '/',
         maxAge: 60*60*1000
     })
-    return res.redirect(config.frontendBaseUrl);
+    return res.redirect(`${config.frontendBaseUrl}/dashboard`);
 }
 
 export const userInfoHandler = async(req, res) => {
