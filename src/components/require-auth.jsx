@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BarLoader } from "react-spinners";
 import { useAuth } from "../hooks/use-auth";
 import { config } from "../config/config";
@@ -11,8 +10,10 @@ export const RequireAuth = ({children}) => {
     }
 
     if (!user) {
-        window.location.href = `${config.authServiceUrl}/google`;
-        return null;
+        if(location.pathname !== '/'){
+            window.location.href = `${config.authServiceUrl}/google`;
+            return null;
+        }
     }
 
     return children;
