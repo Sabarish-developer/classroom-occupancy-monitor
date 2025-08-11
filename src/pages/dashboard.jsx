@@ -7,6 +7,7 @@ export const Dashboard = () => {
         dashboard
         <div>
             {JSON.stringify(user)}
+            dasdboard cards data
         </div>
     </div>
 }
