@@ -25,7 +25,7 @@ export const googleCallbackHandler = async(req, res) => {
         path: '/',
         maxAge: 60*60*1000
     })
-    return res.redirect(`${config.frontendBaseUrl}/dashboard`);
+    return res.redirect(`${config.frontendBaseUrl}/login/callback`);
 }
 
 export const userInfoHandler = async(req, res) => {

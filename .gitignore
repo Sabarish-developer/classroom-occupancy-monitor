@@ -16,4 +16,3 @@ logs/
 docker-compose.override.yml
 
 #keys
-**/keys/
