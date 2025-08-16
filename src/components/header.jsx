@@ -1,23 +1,13 @@
-import { useState } from "react";
 import {Button} from "../components/ui/button";
 import { Link } from "react-router-dom";
 import { config } from "../config/config.js";
 import {useAuth} from '../hooks/use-auth.js';
 import { useNavigate } from "react-router-dom";
 import { logout } from "../services/api.js";
-import { CircleUserRound, LogOut, HatGlasses, Menu } from "lucide-react";
+import {  LogOut, Menu } from "lucide-react";
 import logo from '../assets/logo.png';
 import googleLogo from '../assets/google.png';
 import { Link as ScrollLink } from "react-scroll";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Sheet,
   SheetContent,
@@ -30,20 +20,14 @@ const handleGoogleLogin = () => {
 
 export const Header = () => {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const {user, loading, setUser} = useAuth();
     const navigate = useNavigate();
 
-    const scrollToSection = (id) => {
-     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-
     return (
-        <nav className="flex justify-between items-center p-4 sticky top-0 shadow-xs z-50">
+        <nav className="flex justify-between items-center p-4 sticky top-0 shadow-sm z-50">
 
             {/* Logo and title */}
-            <Link className="flex items-center justify-start lg:pl-8">
+            <Link to='/' className="flex items-center justify-start lg:pl-8">
                 <img src={logo} alt="OccupiX-logo" className="h-10"></img>
                 <div className="text-base md:text-lg lg:text-xl font-bold ml-1 italic">OccupiX</div>
             </Link>
@@ -65,7 +49,7 @@ export const Header = () => {
                 ))}
             </div>
 
-            {/* Login button / Profile button */}
+            {/* Login button / Logout button */}
             <div className="hidden md:block">
                 {
                     !user
@@ -78,107 +62,75 @@ export const Header = () => {
                         </Button>
                     </div>
                     :
-                    <div className="lg:pr-8 ">
-                         <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant="outline" className='flex gap-2 cursor-pointer'>
-                                    <CircleUserRound />
-                                    {user?.name.split(" ")[0]}
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56" align="start">
-                                <DropdownMenuLabel>
-                                <div className="flex gap-2">
-                                    <HatGlasses />
-                                    <span className="font-bold">My Account</span>
-                                </div>
-                                </DropdownMenuLabel>
-                                <DropdownMenuGroup>
-                                    <DropdownMenuItem className='flex flex-wrap'>
-                                        <span className="font-bold">Name:</span> {user?.name}
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <span className="font-bold">Role: </span>{user?.role}
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem className='flex flex-wrap'>
-                                        <span className="font-bold">Email:</span>{user.email}
-                                    </DropdownMenuItem>
-                                </DropdownMenuGroup>
-                            <DropdownMenuSeparator />
-                                <DropdownMenuItem className='cursor-pointer' onClick={()=>logout({setUser, navigate})}>
-                                    <div className="flex gap-2">
-                                        <LogOut color='red'/>
-                                        <span className="text-red-500">Log out</span>
-                                    </div>
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
+                    <div className="lg:pr-8">
+                        <Button className='cursor-pointer border-red-500 border-2 bg-white hover:bg-red-500 text-black font-bold hover:text-white rounded-2xl' 
+                        onClick={() => logout({ setUser, navigate })}>
+                            <LogOut className="mr-2"/>
+                            Log out
+                        </Button>
                     </div>
                 }
             </div>
             
 
            <div className="md:hidden">
-  <Sheet>
-    <SheetTrigger asChild>
-      <Button variant="outline" size="icon" className="border-[#11f035]">
-        <Menu className="h-6 w-6" />
-      </Button>
-    </SheetTrigger>
-    <SheetContent side="right" className="p-6 space-y-6">
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="outline" size="icon" className="border-[#11f035]">
+                            <Menu className="h-6 w-6" />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="p-6 space-y-6">
       
-      {/* Links */}
-      <div className="flex flex-col gap-6 text-lg font-bold">
-        {[
-          { id: "features", label: "Features" },
-          { id: "about", label: "About Us" },
-          { id: "contact", label: "Contact Us" },
-          { id: "faqs", label: "FAQs" },
-        ].map(({ id, label }) => (
-          <ScrollLink
-            key={id}
-            to={id}
-            smooth={true}
-            duration={600}
-            offset={-80}
-            spy={true}
-            onClick={() =>
-              document.querySelector("button[aria-label='Close']")?.click()
-            }
-            className="cursor-pointer hover:underline transition-all"
-          >
-            {label}
-          </ScrollLink>
-        ))}
-      </div>
+                    {/* Links */}
+                    <div className="flex flex-col gap-6 text-lg font-bold">
+                        {[
+                            { id: "features", label: "Features" },
+                            { id: "about", label: "About Us" },
+                            { id: "contact", label: "Contact Us" },
+                            { id: "faqs", label: "FAQs" },
+                        ].map(({ id, label }) => (
+                        <ScrollLink
+                            key={id}
+                            to={id}
+                            smooth={true}
+                            duration={600}
+                            offset={-80}
+                            spy={true}
+                            onClick={() =>
+                            document.querySelector("button[aria-label='Close']")?.click()
+                            }
+                            className="cursor-pointer hover:underline transition-all"
+                        >
+                            {label}
+                        </ScrollLink>
+                    ))}
+                    </div>
 
-      {/* Auth (Login / Profile) */}
-      <div>
-        {!user ? (
-          <Button
-            className="w-full cursor-pointer border-[#11f035] border-2 bg-white hover:bg-[#4cd964] text-black font-bold hover:text-white rounded-2xl"
-            onClick={handleGoogleLogin}
-          >
-            <img src={googleLogo} alt="Google logo" className="h-5 mr-2" />
-            Login / Signup
-          </Button>
-        ) : (
-          <div>
-            <p className="font-bold">{user?.name}</p>
-            <p className="text-sm text-gray-500">{user?.email}</p>
-            <Button
-              variant="destructive"
-              className="mt-4 w-full"
-              onClick={() => logout({ setUser, navigate })}
-            >
-              Log out
-            </Button>
-          </div>
-        )}
-      </div>
-    </SheetContent>
-  </Sheet>
-</div>
+                {/* Auth (Login / Profile) */}
+                <div>
+                    {!user ? (
+                        <Button
+                            className="w-full cursor-pointer border-[#11f035] border-2 bg-white hover:bg-[#4cd964] text-black font-bold hover:text-white rounded-2xl"
+                            onClick={handleGoogleLogin}
+                        >
+                            <img src={googleLogo} alt="Google logo" className="h-5 mr-2" />
+                            Login / Signup
+                        </Button>
+                    ) : (
+                        <Button
+                            variant="destructive"
+                            className="w-full mt-4"
+                            onClick={() => logout({ setUser, navigate })}
+                        >
+                            <LogOut className="mr-2" />
+                                Logout
+                        </Button>
+                    )}
+                </div>
+                </SheetContent>
+                </Sheet>
+            </div>
             
         </nav>
     );
