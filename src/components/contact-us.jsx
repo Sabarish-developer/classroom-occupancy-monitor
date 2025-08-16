@@ -136,7 +136,7 @@ export const Contactus = ({
             />
           </div>
 
-          <Button type="submit" className="w-full cursor-pointer">
+          <Button type="submit" className="w-full cursor-pointer bg-[#0a7a1e]">
             Send Message
           </Button>
         </form>

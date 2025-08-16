@@ -4,6 +4,7 @@ import background from '../assets/background.png';
 import { Features } from "../components/features";
 import { Aboutus } from "../components/about-us";
 import { Contactus } from "../components/contact-us";
+import { Faqs } from "../components/faqs";
 
 export const Landing = () => {
     return(
@@ -19,7 +20,9 @@ export const Landing = () => {
         <section id="contact" className='my-10'>
           <Contactus />
         </section>
-        <section id="faqs" className='h-[500px]'>FAQs</section>
+        <section id="faqs" className='my-10'>
+          <Faqs />
+        </section>
       </div>
     );
 
