@@ -55,7 +55,7 @@ export const Header = () => {
                     !user
                     ?
                     <div className="lg:pr-8">
-                        <Button className='cursor-pointer border-[#11f035] border-2 bg-white hover:bg-[#4cd964] text-black font-bold hover:text-white rounded-2xl' 
+                        <Button className='cursor-pointer border-[#0a7a1e] border-2 bg-white hover:bg-[#0a7a1e] text-black font-bold hover:text-white rounded-2xl' 
                         onClick={handleGoogleLogin}>
                             <img src={googleLogo} alt='Google logo' className="h-5"></img>
                             Login / Signup
