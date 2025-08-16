@@ -24,7 +24,7 @@ export const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <nav className="flex justify-between items-center p-4 sticky top-0 shadow-sm z-50">
+        <nav className="flex justify-between items-center p-4 sticky top-0 shadow-sm z-50 bg-white">
 
             {/* Logo and title */}
             <Link to='/' className="flex items-center justify-start lg:pl-8">
@@ -34,7 +34,7 @@ export const Header = () => {
 
             {/* Desktopn Navigation links */}
             <div className="hidden md:flex gap-16 font-bold text-lg">
-                {["features", "about", "contact", "faqs"].map((section) => (
+                {["features", "about", "contact", "FAQs"].map((section) => (
                 <ScrollLink
                     key={section}
                     to={section} // section id in landing page
@@ -88,7 +88,7 @@ export const Header = () => {
                             { id: "features", label: "Features" },
                             { id: "about", label: "About Us" },
                             { id: "contact", label: "Contact Us" },
-                            { id: "faqs", label: "FAQs" },
+                            { id: "FAQs", label: "FAQs" },
                         ].map(({ id, label }) => (
                         <ScrollLink
                             key={id}
