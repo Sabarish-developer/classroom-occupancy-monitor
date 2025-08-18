@@ -2,13 +2,13 @@ import { Router } from "express";
 import rateLimiter from '../utils/rate-limiter.js';
 import authMiddleware from '../middleware/auth-middleware.js';
 import roleMiddleware from '../middleware/role-middleware.js';
-import { studentOccupancyHandler } from "../controllers/occupancy-controllers";
+import { occupancyHandler, refreshOccupancyHandler } from "../controllers/occupancy-controllers.js";
 
 const router = Router();
 
 router.use(rateLimiter, authMiddleware);
 
-router.get('/student', roleMiddleware('student'), studentOccupancyHandler);
-router.get('/faculty', roleMiddleware('faculty'), facultyOccupancyHandler);
+router.get('/occupancy', roleMiddleware('student', 'faculty'), occupancyHandler);
+router.post('/occupancy/refresh', roleMiddleware('student', 'faculty'), refreshOccupancyHandler);
 
 export default router;
