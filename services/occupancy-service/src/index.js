@@ -2,8 +2,6 @@ import express from 'express';
 import { config } from './config/config.js'; // environment variables
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import authMiddleware from './middleware/auth-middleware.js';
-import rateLimiter from '../../auth-service/src/utils/rate-limiters.js';
 import router from './routes/occupancy-routes.js';
 
 const app = express();
@@ -19,7 +17,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 //Routes
-app.get('/api/occupancy', rateLimiter, authMiddleware, router);
+app.get('/api/occupancy', router);
 
 //Error handling middleware
 app.use((err, req, res, next) => {
