@@ -10,5 +10,6 @@ dotenv.config({path: path.resolve(__dirname, '../../.env')});
 export const config = {
     port: process.env.PORT,
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
-    jwksRoute: process.env.JWKS_ROUTE
+    jwksRoute: process.env.JWKS_ROUTE,
+    azureDigitalTwinUrl: process.env.AZURE_DIGITAL_TWIN_URL
 };
