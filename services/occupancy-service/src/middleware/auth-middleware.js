@@ -2,7 +2,7 @@ import { verifyJwt } from "../utils/jwt.js";
 
 const authMiddleware = async (req, res, next) => {
   try {
-    const token = req.cookies.token;
+    const token = req.cookies.occupix;
     if (!token) return res.status(401).json({ error: "No token found" });
 
     const { valid, payload, error } = await verifyJwt(token);
