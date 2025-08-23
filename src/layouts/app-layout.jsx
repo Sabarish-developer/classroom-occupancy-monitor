@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
+import { Footer } from "../components/footer";
 
 export const AppLayout = () => {
     return (
@@ -8,10 +9,7 @@ export const AppLayout = () => {
             <main className="min-h-screen max-w-screen">
                 <Outlet />
             </main>
-            <div className=" px-10 py-6 text-center bg-[#0a7a1e] text-white">
-                Made with 🤍 by &nbsp;
-                <a href="https://www.github.com/Sabarish-developer" target="_blank" className="underline font-bold italic">Sabarish</a>
-            </div>
+            <Footer />
         </div>
     )
 }
