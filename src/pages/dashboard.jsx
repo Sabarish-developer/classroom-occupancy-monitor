@@ -1,13 +1,12 @@
 import { useAuth } from "../hooks/use-auth";
+import Sidebar from "../components/sidebar";
 
 export const Dashboard = () => {
 
-    const {user} = useAuth();
-    return <div >
-        dashboard
+    const obj = useAuth();
+    return (
         <div>
-            {JSON.stringify(user)}
-            dasdboard cards data
+            <Sidebar />
         </div>
-    </div>
+    )
 }
