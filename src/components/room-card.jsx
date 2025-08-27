@@ -16,14 +16,19 @@ export const RoomCard = ({room, isFavourite, onToggleFavourite}) => {
 
 
     return (
-        <div className="flex flex-col gap-0.5 min-w-3xs md:min-w-xs lg:min-w-sm max-w-xl p-4 border-2 m-2 rounded-xl hover:shadow-[#0a7a1e] hover:shadow-xl">
+        <div className="flex flex-col gap-0.5 w-full max-w-sm p-4 rounded-xl 
+                        max-h-max hover:shadow-[#0a7a1e] hover:shadow-xl border border-[#0a7a1e]">
             <div className="flex justify-between">
                 <h2 className="font-bold text-xl lg:text-2xl capitalize">{room.name}</h2>
-                <Star size={15} 
+                <span title = {isFavourite ? 'Remove from favourites' : 'Add to favourites'}>
+                    <Star size={15} 
                       onClick={onToggleFavourite}
                       fill={isFavourite ? 'gold' : 'none'} 
                       stroke={'gray'} 
-                      className="cursor-pointer" />
+                      className="cursor-pointer" 
+                    />
+                </span>
+                
             </div>
             <p className="text-[10px] md:text-xs  text-gray-500">Capacity: {room.capacity}</p>
             <p className="text-[10px] md:text-xs text-gray-500">Occupancy: {room.occupancy}</p>
