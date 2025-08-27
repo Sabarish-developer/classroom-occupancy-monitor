@@ -1,6 +1,7 @@
 import Sidebar from "../components/sidebar";
 import { RoomCard } from "@/components/room-card";
 import { useState } from "react";
+import { SortButton } from "@/components/sort-button";
 
 
 export const Dashboard = () => {
@@ -31,6 +32,9 @@ export const Dashboard = () => {
         })
     }
 
+    const [sortValue, setSortValue] = useState('none');
+    
+
     return (
         <div className="flex w-full">
 
@@ -50,7 +54,7 @@ export const Dashboard = () => {
                         className="border border-gray-300 rounded-lg px-3 py-2 w-full"
                         />
                         <div className="flex items-center gap-2">
-                        <button className="px-4 py-2 bg-gray-200 rounded-lg">Sort</button>
+                        <SortButton sortValue={sortValue} setSortValue={setSortValue}/>
                         <button className="px-4 py-2 bg-gray-200 rounded-lg">Filter</button>
                         </div>
                     </div>
