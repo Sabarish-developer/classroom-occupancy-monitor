@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   children: [
     {path: "/", element: <Landing />},
     {path: "login/callback", element: <LoginCallback />},
-    {path: "dashboard", element: <Dashboard />},
+    {path: "dashboard", element: <RequireAuth><Dashboard /></RequireAuth>},
     {path: "genai", element: <GenAi />}
   ]
   }

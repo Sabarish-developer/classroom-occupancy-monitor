@@ -130,8 +130,10 @@ export const Dashboard = () => {
                             <small className="pl-2 text-[#017a1e]">Loading...</small>
                         </div>) :
                         error ? 
-                        (
-                            <div className="text-red-500">{error.message}, Kindly contact admin</div>
+                        (   <>
+                                <div className="text-red-500">{error}, Please try again later</div>
+                                <div>Kindly contact admin</div>
+                            </>
                         ) : 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4 mx-auto h-fit w-full max-w-full justify-items-center">
                         {
