@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
+  ChevronLast,
+  ChevronFirst,
   ChevronLeft,
   AppWindow,
   Cpu,
@@ -67,19 +69,62 @@ const Sidebar = () => {
           overflow-hidden md:relative fixed h-screen"
       >
         {/* Logo */}
-        <div className="flex items-center gap-2.5 font-medium border-b py-3 border-slate-300 mx-3">
+        <div className="flex items-center font-medium border-b py-3 border-slate-300 mx-3">
           <img
             src={logo}
             width={40}
             alt="logo"
+            className={`${!open ? "hidden" : "inline"}`}
           />
-          <span
-            className={`text-xl font-bold whitespace-pre duration-200 ${
-              !open ? "opacity-0 translate-x-28 overflow-hidden" : ""
-            }`}
-          >
-            OccupiX 
-          </span>
+
+          {/* OccupiX text with animation */}
+          <AnimatePresence>
+            {open && (
+              <motion.span
+                key="occupix"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+                className="text-xl flex-1 font-bold whitespace-pre"
+              >
+                OccupiX
+              </motion.span>
+            )}
+          </AnimatePresence>
+
+          {/* Chevron toggle */}
+          <div className="hidden md:flex mx-auto" onClick={() => setOpen(!open)}>
+          <AnimatePresence mode="sync">
+            {open ? (
+              <motion.div
+                key="first"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                transition={{ duration: 0.25 }}
+              >
+                <ChevronFirst
+                  size={25}
+                  className="hover:bg-[#0a7a1e] hover:text-white cursor-pointer rounded-full p-1 transition-colors duration-300"
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="last"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                <ChevronLast
+                  size={25}
+                  className="hover:bg-[#0a7a1e] hover:text-white cursor-pointer rounded-full p-1 transition-colors duration-300"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         </div>
 
         {/* Menu items */}
@@ -123,19 +168,6 @@ const Sidebar = () => {
           )}
         </div>
 
-        {/* Collapse button */}
-        <motion.div
-          onClick={() => setOpen(!open)}
-          animate={
-            open
-              ? { x: 0, y: 5, rotate: 0 }
-              : { x: -10, y: -200, rotate: 180 }
-          }
-          transition={{ duration: 0 }}
-          className="absolute w-fit h-fit md:block z-50 hidden right-2 bottom-3 cursor-pointer"
-        >
-          <ChevronLeft size={22} />
-        </motion.div>
       </motion.div>
 
       {/* Hamburger menu for mobile */}

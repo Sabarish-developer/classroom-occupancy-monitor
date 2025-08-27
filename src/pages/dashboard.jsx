@@ -1,12 +1,23 @@
-import { useAuth } from "../hooks/use-auth";
 import Sidebar from "../components/sidebar";
+import { RoomCard } from "@/components/room-card";
+
+
+const room = {
+    name: 'A101',
+    capacity: 100,
+    occupancy: 80,
+    status: 'available',
+    favourite: true
+}
 
 export const Dashboard = () => {
 
-    const obj = useAuth();
     return (
-        <div>
+        <div className="flex">
             <Sidebar />
+            <div>
+                <RoomCard room={room}/>
+            </div>
         </div>
     )
 }

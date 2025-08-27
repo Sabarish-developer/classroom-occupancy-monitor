@@ -7,6 +7,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./context";
 import { RequireAuth } from "./components/require-auth";
+import { GenAi } from "./pages/gen-ai";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
   children: [
     {path: "/", element: <Landing />},
     {path: "login/callback", element: <LoginCallback />},
-    {path: "dashboard", element: <RequireAuth><Dashboard /></RequireAuth>}
+    {path: "dashboard", element: <Dashboard />},
+    {path: "genai", element: <GenAi />}
   ]
   }
 ])
