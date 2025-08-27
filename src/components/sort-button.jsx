@@ -26,6 +26,7 @@ export const SortButton = ({sortValue, setSortValue}) => {
             <DropdownMenuRadioItem value="alphabetical" className='cursor-pointer'>Alphabetical</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="increasing" className='cursor-pointer'>Increasing occupancy</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="decreasing" className='cursor-pointer'>Decreasing occupancy</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="none" className='cursor-pointer'>None</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
         </DropdownMenuContent>
         </DropdownMenu>

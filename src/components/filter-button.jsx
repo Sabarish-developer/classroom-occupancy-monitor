@@ -16,7 +16,7 @@ export const FilterButton = ({filterValue, setFilterValue}) => {
         <DropdownMenu>
         <DropdownMenuTrigger asChild>
             <Button className='bg-[#017a1e] cursor-pointer border-0'>
-                <Funnel size={25} />
+                <Funnel size={25}/>
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
