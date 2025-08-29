@@ -37,7 +37,7 @@ export const Dashboard = () => {
         try{
             setLoading(true);
             setError(null);
-            const response = await axios.post(`${config.occupancyServiceUrl}/refresh`);
+            const response = await axios.post(`${config.occupancyServiceUrl}/refresh`, {}, {withCredentials: true});
             setRooms(response.data.data);
             toast.success('Data fetched successfully')
         }
@@ -131,7 +131,7 @@ export const Dashboard = () => {
                         </div>) :
                         error ? 
                         (   <>
-                                <div className="text-red-500">{error}, Please try again later</div>
+                                <div className="text-red-500">{typeof error==='string' ? error : error.message}</div>
                                 <div>Kindly contact admin</div>
                             </>
                         ) : 
