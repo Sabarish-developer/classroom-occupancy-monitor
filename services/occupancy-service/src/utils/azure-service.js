@@ -7,7 +7,7 @@ const adtUrl = config.azureDigitalTwinUrl;
 const credential = new AzureCliCredential();
 const client = new DigitalTwinsClient(adtUrl, credential);
 
-// Fetch directly from Azure
+// Fetch directly from Azure + update Redis
 async function fetchFromAzure() {
   console.log("Fetching data from Azure Digital Twins...");
 
@@ -22,18 +22,19 @@ async function fetchFromAzure() {
     });
   }
 
-  // Save to Redis
+  // Save fresh data to Redis
   await setCache(twins);
   return twins;
 }
 
-// Get occupancy data (cached or fresh)
+// Get occupancy data
 export async function getOccupancyData(forceRefresh = false) {
-  const cached = await getCache();
-
-  if (!cached || forceRefresh) {
+  if (forceRefresh) {
+    // Refresh button → fetch fresh from Azure & update Redis
     return await fetchFromAzure();
   }
 
-  return cached;
+  // Normal flow → only from Redis
+  const cached = await getCache();
+  return cached ; 
 }

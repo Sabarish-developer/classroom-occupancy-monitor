@@ -3,6 +3,7 @@ import { config } from './config/config.js'; // environment variables
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import router from './routes/genai-routes.js';
+import './utils/cache.js';
 
 const app = express();
 

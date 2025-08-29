@@ -29,7 +29,7 @@ export async function getCache() {
   if (typeof cached === "string") {
     return JSON.parse(cached); // parse only if string
   }
-  return cached.data; // already object/array
+  return cached; // already object/array
 }
 
 // Clear cache
