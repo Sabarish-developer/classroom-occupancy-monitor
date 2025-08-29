@@ -20,3 +20,4 @@ export const refreshOccupancyHandler = async (req, res) => {
     res.status(500).json({ error: "Failed to refresh occupancy data" });
   }
 };
+

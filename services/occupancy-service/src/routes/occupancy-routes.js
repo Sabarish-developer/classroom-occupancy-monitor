@@ -8,7 +8,7 @@ const router = Router();
 
 router.use(rateLimiter, authMiddleware);
 
-router.get('/occupancy', roleMiddleware('student', 'faculty'), occupancyHandler);
-router.post('/occupancy/refresh', roleMiddleware('student', 'faculty'), refreshOccupancyHandler);
+router.get('/data', roleMiddleware('student', 'faculty'), occupancyHandler);
+router.post('/refresh', roleMiddleware('student', 'faculty'), refreshOccupancyHandler);
 
 export default router;

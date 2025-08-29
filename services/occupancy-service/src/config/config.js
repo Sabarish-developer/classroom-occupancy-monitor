@@ -11,5 +11,7 @@ export const config = {
     port: process.env.PORT,
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
     jwksRoute: process.env.JWKS_ROUTE,
-    azureDigitalTwinUrl: process.env.AZURE_DIGITAL_TWIN_URL
+    azureDigitalTwinUrl: process.env.AZURE_DIGITAL_TWIN_URL,
+    redisUrl: process.env.UPSTASH_REDIS_REST_URL,
+    redisToken: process.env.UPSTASH_REDIS_REST_TOKEN
 };

@@ -13,6 +13,7 @@
   "dependencies": {
     "@azure/digital-twins-core": "^2.0.0",
     "@azure/identity": "^4.11.1",
+    "@upstash/redis": "^1.35.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",

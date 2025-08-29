@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 //Routes
-app.get('/api/occupancy', router);
+app.use('/api/occupancy', router);
 
 //Error handling middleware
 app.use((err, req, res, next) => {

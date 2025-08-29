@@ -1,6 +1,6 @@
 import { DigitalTwinsClient } from "@azure/digital-twins-core";
 import { AzureCliCredential } from "@azure/identity";
-import { setCache, getCache, clearCache } from "./cache.js";
+import { setCache, getCache } from "./cache.js";
 import { config } from "../config/config.js";
 
 const adtUrl = config.azureDigitalTwinUrl;
@@ -14,16 +14,22 @@ async function fetchFromAzure() {
   const twins = [];
   const queryResult = client.queryTwins("SELECT * FROM digitaltwins");
   for await (const twin of queryResult) {
-    twins.push(twin);
+    twins.push({
+      name: twin.name,
+      capacity: twin.capacity,
+      occupancy: twin.occupancy,
+      status: twin.status,
+    });
   }
 
-  setCache(twins);
+  // Save to Redis
+  await setCache(twins);
   return twins;
 }
 
 // Get occupancy data (cached or fresh)
 export async function getOccupancyData(forceRefresh = false) {
-  const cached = getCache();
+  const cached = await getCache();
 
   if (!cached || forceRefresh) {
     return await fetchFromAzure();
@@ -31,6 +37,3 @@ export async function getOccupancyData(forceRefresh = false) {
 
   return cached;
 }
-
-// Optional utility
-export { clearCache };
