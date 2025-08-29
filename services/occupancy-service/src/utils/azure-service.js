@@ -18,7 +18,6 @@ async function fetchFromAzure() {
       name: twin.name,
       capacity: twin.capacity,
       occupancy: twin.occupancy,
-      status: twin.status,
     });
   }
 

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^1.16.0",
     "@upstash/redis": "^1.35.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

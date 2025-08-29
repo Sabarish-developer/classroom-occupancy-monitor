@@ -8,31 +8,31 @@ const redis = new Redis({
 
 const OCCUPANCY_KEY = "occupancy_data";
 
-// Local in-memory cache
 let localCache = null;
 
-// Fetch latest from Redis
-async function fetchLatest() {
+export async function fetchLatest() {
   const cached = await redis.get(OCCUPANCY_KEY);
-  if (!cached) return;
-    try {
-      localCache = typeof cached === "string" ? JSON.parse(cached) : cached;
-      console.log("AI Service updated local cache:", localCache);
-    } catch (err) {
-      console.error("JSON parse error:", err.message);
-    }
-  }
+  if (!cached) return null;
 
-// Polling loop every 5 seconds
-async function pollLoop() {
-  await fetchLatest();
-  setTimeout(pollLoop, 5000);
+  try {
+    localCache = typeof cached === "string" ? JSON.parse(cached) : cached;
+    console.log("AI Service updated local cache:", localCache);
+    return localCache;
+  } catch (err) {
+    console.error("JSON parse error:", err.message);
+    return null;
+  }
 }
 
-// Start polling
-pollLoop();
+async function pollingLoop() {
+  await fetchLatest();
+  setTimeout(pollingLoop, 10 * 60 * 1000);
+}
 
-// Export getter for AI logic
+// Start Redis polling in background
+pollingLoop();
+
+// Export getter
 export function getLocalCache() {
   return localCache;
 }

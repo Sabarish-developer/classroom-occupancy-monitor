@@ -12,5 +12,6 @@ export const config = {
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
     jwksRoute: process.env.JWKS_ROUTE,
     redisUrl: process.env.UPSTASH_REDIS_REST_URL,
-    redisToken: process.env.UPSTASH_REDIS_REST_TOKEN
+    redisToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    geminiApiKey: process.env.GOOGLE_GEMINI_API_KEY
 };
