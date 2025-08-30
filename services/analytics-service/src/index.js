@@ -11,8 +11,12 @@ appInsights.setup(config.azureAppInsightsConnectionString)
     .setAutoCollectDependencies(true)
     .setAutoCollectExceptions(true)
     .setAutoCollectPerformance(true)
+    .setInternalLogging(true, true) 
     .start();
 export const telemetryClient = appInsights.defaultClient;
+
+telemetryClient.trackEvent({ name: "TestConnection" });
+console.log("Test telemetry sent to App Insights");
 
 const app = express();
 

@@ -17,5 +17,7 @@ export const config = {
     googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
     googleCallbackUrl: process.env.GOOGLE_CALLBACK_URL,
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
-    nodeEnv: process.env.NODE_ENV
+    nodeEnv: process.env.NODE_ENV,
+    analyticsUrl: process.env.ANALYTICS_URL,
+    serviceJwtSecret: process.env.SERVICE_JWT_SECRET
 }
