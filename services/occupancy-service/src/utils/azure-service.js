@@ -24,6 +24,7 @@ async function fetchFromAzure() {
 
   // Save fresh data to Redis
   await setCache(twins);
+  eventLogger(twins);
   return twins;
 }
 
@@ -36,6 +37,5 @@ export async function getOccupancyData(forceRefresh = false) {
 
   // Normal flow → only from Redis
   const cached = await getCache();
-  eventLogger(cached);
   return cached ; 
 }

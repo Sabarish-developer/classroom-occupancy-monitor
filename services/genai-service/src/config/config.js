@@ -13,5 +13,7 @@ export const config = {
     jwksRoute: process.env.JWKS_ROUTE,
     redisUrl: process.env.UPSTASH_REDIS_REST_URL,
     redisToken: process.env.UPSTASH_REDIS_REST_TOKEN,
-    geminiApiKey: process.env.GOOGLE_GEMINI_API_KEY
+    geminiApiKey: process.env.GOOGLE_GEMINI_API_KEY,
+    analyticsServiceUrl: process.env.ANALYTICS_SERVICE_URL,
+    serviceJwtSecret: process.env.SERVICE_JWT_SECRET
 };
