@@ -2,6 +2,7 @@ import { DigitalTwinsClient } from "@azure/digital-twins-core";
 import { AzureCliCredential } from "@azure/identity";
 import { setCache, getCache } from "./cache.js";
 import { config } from "../config/config.js";
+import { eventLogger } from "./analytics-logger.js";
 
 const adtUrl = config.azureDigitalTwinUrl;
 const credential = new AzureCliCredential();
@@ -35,5 +36,6 @@ export async function getOccupancyData(forceRefresh = false) {
 
   // Normal flow → only from Redis
   const cached = await getCache();
+  eventLogger(cached);
   return cached ; 
 }

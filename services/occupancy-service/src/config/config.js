@@ -13,5 +13,7 @@ export const config = {
     jwksRoute: process.env.JWKS_ROUTE,
     azureDigitalTwinUrl: process.env.AZURE_DIGITAL_TWIN_URL,
     redisUrl: process.env.UPSTASH_REDIS_REST_URL,
-    redisToken: process.env.UPSTASH_REDIS_REST_TOKEN
+    redisToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    analyticsServiceUrl: process.env.ANALYTICS_SERVICE_URL,
+    serviceJwtSecret: process.env.SERVICE_JWT_SECRET
 };

@@ -12,6 +12,7 @@ export const metricLogger = async(name, value) => {
                 }
             }
         );
+        console.log(name, ' log sent successfully to Analytics service');
     }
     catch(err){
         console.error(`Failed to send metric ${name}: `, err.message);
