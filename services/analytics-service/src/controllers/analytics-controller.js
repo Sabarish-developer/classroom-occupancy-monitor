@@ -1,6 +1,6 @@
 import {telemetryClient} from '../index.js';
 
-const BUFFER_LIMIT = 15;
+const BUFFER_LIMIT = 1;
 let eventBuffer = [];
 let metricBuffer = [];
 
@@ -26,7 +26,7 @@ export const trackEventHandler = async(req, res) => {
     if(!name || !properties){
         return res.status(400).json({message: 'Name and property is required to log'});
     }
-    
+
     const newProperties = Object.fromEntries(
         Object.entries(properties).map(([k, v]) => [String(k), String(v)])
     );
