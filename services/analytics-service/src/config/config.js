@@ -12,5 +12,8 @@ export const config = {
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
     jwksRoute: process.env.JWKS_ROUTE,
     azureAppInsightsConnectionString: process.env.AZURE_APP_INSIGHTS_CONNECTION_STRING,
-    serviceJwtSecret: process.env.SERVICE_JWT_SECRET
+    serviceJwtSecret: process.env.SERVICE_JWT_SECRET,
+    azureWorkspaceId: process.env.AZURE_WORKSPACE_ID,
+    azureResourceId: process.env.AZURE_RESOURCE_ID,
+    azureMetricsEndpoint: process.env.AZURE_METRICS_ENDPOINT
 };

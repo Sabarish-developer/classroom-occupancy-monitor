@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/identity": "^4.11.1",
+    "@azure/monitor-query-logs": "^1.0.0",
+    "@azure/monitor-query-metrics": "^1.0.0",
     "applicationinsights": "^3.9.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
