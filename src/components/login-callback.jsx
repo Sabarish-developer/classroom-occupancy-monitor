@@ -12,7 +12,10 @@ export const LoginCallback = () => {
     useEffect(()=>{
         if(initialized && user){
             toast.success("Logged in successfully!");
-            navigate('/dashboard');
+            if(user.role==='admin')
+                navigate('/admin-dashboard');
+            else
+                navigate('/dashboard');
         }
     }, [initialized, user]);
 

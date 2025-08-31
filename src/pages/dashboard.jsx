@@ -95,7 +95,7 @@ export const Dashboard = () => {
 
         return result;
     }, [rooms, filterValue, searchValue, sortValue, favourites])
-
+    
     return (
         <div className="flex w-full">
 

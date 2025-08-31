@@ -3,5 +3,6 @@ export const config = {
     apiBaseUrl: import.meta.env.VITE_API_BASE_URL,
     authServiceUrl: import.meta.env.VITE_AUTH_SERVICE_URL,
     occupancyServiceUrl: import.meta.env.VITE_OCCUPANCY_SERVICE_URL,
-    genaiServiceUrl: import.meta.env.VITE_GENAI_SERVICE_URL
+    genaiServiceUrl: import.meta.env.VITE_GENAI_SERVICE_URL,
+    analyticsServiceUrl: import.meta.env.VITE_ANALYTICS_SERVICE_URL
 }
