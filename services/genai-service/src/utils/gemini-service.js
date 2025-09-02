@@ -18,7 +18,8 @@ export async function geminiHandler(userPrompt) {
       model: "gemini-2.5-flash",
       contents: ` Here is the occupancy data: ${dataString}. 
                   Collab is staffroom, Rec Cafe is canteen, rest all classrooms.
-                  Answer shortly this question based on above data with reason: ${userPrompt}
+                  Answer shortly this question based on above data with reason: ${userPrompt}.
+                  Give only text, no markdown.
                 `,
       config: { thinkingConfig: { thinkingBudget: 0 } }
       });
