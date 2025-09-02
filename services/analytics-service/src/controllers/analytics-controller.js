@@ -1,7 +1,7 @@
 import {telemetryClient} from '../index.js';
 import { runAnalytics } from '../utils/azure-service.js';
 
-const BUFFER_LIMIT = 1;
+const BUFFER_LIMIT = 3;
 let eventBuffer = [];
 let metricBuffer = [];
 
