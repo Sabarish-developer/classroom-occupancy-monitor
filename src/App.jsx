@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     {path: "login/callback", element: <LoginCallback />},
     {path: "dashboard", element: <RequireAuth><Dashboard /></RequireAuth>},
     {path: "genai", element: <RequireAuth><GenAi /></RequireAuth>},
-    {path: "admin-dashboard", element: <AdminDashboard />}
+    {path: "admin-dashboard", element: <RequireAuth><AdminDashboard /></RequireAuth>}
   ]
   }
 ])

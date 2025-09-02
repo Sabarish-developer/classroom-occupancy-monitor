@@ -24,6 +24,8 @@
     "dotenv": "^17.2.1",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
+    "igniteui-react-charts": "^19.0.1",
+    "igniteui-react-core": "^19.0.1",
     "lucide-react": "^0.539.0",
     "react": "^19.1.1",
     "react-circle-progress-bar": "^0.1.4",

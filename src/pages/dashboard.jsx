@@ -13,6 +13,8 @@ import axios from "axios";
 
 export const Dashboard = () => {
 
+    const [open, setOpen] = useState(false); //sidebar state
+
     const [rooms, setRooms] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -99,9 +101,9 @@ export const Dashboard = () => {
     return (
         <div className="flex w-full">
 
-            <Sidebar />
+            <Sidebar open={open} setOpen={setOpen}/>
 
-            <main className="flex-1">
+            <main className={`flex-1 ${open ? "md:ml-[16rem]" : "md:ml-[4rem]"} transition-all duration-500`}>
                 <div className="mx-auto w-full px-6">
 
                     <div className="flex justify-between items-center">
