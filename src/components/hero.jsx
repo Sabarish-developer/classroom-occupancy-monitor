@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MoveRight, ArrowRight, CirclePlay } from "lucide-react";
 import template from "../assets/background.png";
+import adminDashboard from '../assets/admin-dashboard.png';
 
 export const Hero = () => {
     return (
@@ -65,7 +66,7 @@ export const Hero = () => {
 
         {/* Image */}
         <img
-          src={template}
+          src={adminDashboard}
           alt="dashboard"
           className="w-full max-w-4xl mx-auto rounded-2xl shadow-lg object-cover"
         />
