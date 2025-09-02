@@ -1,4 +1,5 @@
 import {telemetryClient} from '../index.js';
+import { runAnalytics } from '../utils/azure-service.js';
 
 const BUFFER_LIMIT = 1;
 let eventBuffer = [];
@@ -54,4 +55,15 @@ export const trackMetricHandler = async(req, res) => {
     }
 
     res.status(200).json({message: 'metric buffered'});
+}
+
+export const adminDataHandler = async(req, res) => {
+    try{
+        const data = await runAnalytics();
+        console.log(data);
+        return res.status(200).json({message: 'Data fetched successfully', data});
+    }
+    catch(e){
+        console.error('Error fetching log data: ', e.message);
+    }
 }

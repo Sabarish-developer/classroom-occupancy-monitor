@@ -15,9 +15,6 @@ appInsights.setup(config.azureAppInsightsConnectionString)
     .start();
 export const telemetryClient = appInsights.defaultClient;
 
-telemetryClient.trackEvent({ name: "TestConnection" });
-console.log("Test telemetry sent to App Insights");
-
 const app = express();
 
 //Security middleware

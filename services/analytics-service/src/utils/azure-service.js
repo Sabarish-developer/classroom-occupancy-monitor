@@ -72,7 +72,7 @@ function computePrompts(events) {
   return { dailyPrompts: daysMap, totalPrompts, avgPerUser };
 }
 
-async function runAnalytics() {
+export async function runAnalytics() {
   // --- Login metrics ---
   const loginAttempts = await queryLogs(`
     AppMetrics
@@ -125,7 +125,7 @@ prompts.dailyPrompts = dailyPromptsComplete;
   const rooms = computeRoomOccupancy(roomEvents);
 
   // Final analytics JSON
-  const analytics = {
+  const data = {
     login: {
       attempts: loginAttempts[0]?.[0] || 0,
       success: loginSuccess[0]?.[0] || 0,
@@ -135,7 +135,5 @@ prompts.dailyPrompts = dailyPromptsComplete;
     rooms,
   };
 
-  console.log(JSON.stringify(analytics, null, 2));
+  return data;
 }
-
-runAnalytics();

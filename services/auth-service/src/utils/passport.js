@@ -13,9 +13,11 @@ passport.use(new GoogleStrategy(
         try{
 
             const email = profile.emails[0].value;
+            /*
             if(!email.endsWith("@rajalakshmi.edu.in")){
                 return done(new Error('Unauthorized email domain - only (@rajalakshmi.edu.in)'), null);
             }
+            */
 
             const username = email.split('@')[0];
             const role = /^[0-9]+$/.test(username) ? 'student' : 'faculty';
