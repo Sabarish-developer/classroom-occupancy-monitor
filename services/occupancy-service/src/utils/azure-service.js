@@ -3,6 +3,7 @@ import { AzureCliCredential } from "@azure/identity";
 import { setCache, getCache } from "./cache.js";
 import { config } from "../config/config.js";
 import { eventLogger } from "./analytics-logger.js";
+import { simulateData } from "./simulate.js";
 
 const adtUrl = config.azureDigitalTwinUrl;
 const credential = new AzureCliCredential();
@@ -32,6 +33,7 @@ async function fetchFromAzure() {
 export async function getOccupancyData(forceRefresh = false) {
   if (forceRefresh) {
     // Refresh button → fetch fresh from Azure & update Redis
+    await simulateData();
     return await fetchFromAzure();
   }
 
