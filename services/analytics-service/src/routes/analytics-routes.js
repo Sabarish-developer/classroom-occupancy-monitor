@@ -10,6 +10,6 @@ const router = Router();
 
 router.post('/log-event', verifyServiceSecret, trackEventHandler);
 router.post('/log-metric', verifyServiceSecret, trackMetricHandler);
-router.get('/admin-data', rateLimiter, adminDataHandler); // all roles can view
+router.get('/admin-data', rateLimiter, authMiddleware, adminDataHandler); // all roles can view
 
 export default router;

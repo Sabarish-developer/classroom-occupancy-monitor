@@ -6,9 +6,9 @@ import { occupancyHandler, refreshOccupancyHandler } from "../controllers/occupa
 
 const router = Router();
 
-router.use(rateLimiter);
+router.use(rateLimiter, authMiddleware);
 
-router.get('/data', occupancyHandler);
-router.post('/refresh', refreshOccupancyHandler);
+router.get('/data', roleMiddleware('student', 'faculty'), occupancyHandler);
+router.post('/refresh', roleMiddleware('student', 'faculty'), refreshOccupancyHandler);
 
 export default router;
