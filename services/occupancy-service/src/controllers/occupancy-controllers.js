@@ -17,7 +17,7 @@ export const refreshOccupancyHandler = async (req, res) => {
     res.json({ data });
   } catch (err) {
     console.error("Error refreshing occupancy:", err);
-    res.status(500).json({ error: "Failed to refresh occupancy data" });
+    res.status(500).json({ error: err.message || "Failed to refresh occupancy data" });
   }
 };
 
