@@ -52,4 +52,5 @@ export const useFetch = (url, options={}, refreshInterval=null) => {
     }, [url])
 
     return {data, error, loading};
+    
 }
