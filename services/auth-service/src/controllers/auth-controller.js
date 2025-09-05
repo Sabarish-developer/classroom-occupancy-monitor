@@ -27,7 +27,6 @@ export const googleCallbackHandler = async(req, res) => {
             httpOnly: true,
             secure: config.nodeEnv==='production',
             sameSite: config.nodeEnv==='production' ? 'None' : 'Lax',
-            domain: '.onrender.com',
             path: '/',
             maxAge: 60*60*1000
         })

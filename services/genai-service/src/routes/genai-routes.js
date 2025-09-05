@@ -6,7 +6,7 @@ import { promptHandler } from "../controllers/genai-controllers.js";
 
 const router = Router();
 
-router.use(rateLimiter, authMiddleware);
+router.use(rateLimiter);
 
 router.post('/prompt', roleMiddleware('student', 'faculty'), promptHandler);
 

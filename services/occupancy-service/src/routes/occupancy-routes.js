@@ -6,7 +6,7 @@ import { occupancyHandler, refreshOccupancyHandler } from "../controllers/occupa
 
 const router = Router();
 
-router.use(rateLimiter, authMiddleware);
+router.use(rateLimiter);
 
 router.get('/data', roleMiddleware('student', 'faculty'), occupancyHandler);
 router.post('/refresh', roleMiddleware('student', 'faculty'), refreshOccupancyHandler);
