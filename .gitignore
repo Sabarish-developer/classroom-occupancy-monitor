@@ -15,4 +15,5 @@ logs/
 *.local
 docker-compose.override.yml
 
-#keys
+#privatekey
+auth-service/keys/private.key
