@@ -19,5 +19,6 @@ export const config = {
     frontendBaseUrl: process.env.FRONTEND_BASE_URL,
     nodeEnv: process.env.NODE_ENV,
     analyticsUrl: process.env.ANALYTICS_URL,
-    serviceJwtSecret: process.env.SERVICE_JWT_SECRET
+    serviceJwtSecret: process.env.SERVICE_JWT_SECRET,
+    privateKeyPath: process.env.PRIVATE_KEY_PATH
 }
