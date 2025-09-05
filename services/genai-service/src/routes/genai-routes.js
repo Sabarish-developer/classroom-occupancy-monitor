@@ -8,7 +8,7 @@ const router = Router();
 
 router.use(rateLimiter);
 
-router.post('/prompt', roleMiddleware('student', 'faculty'), promptHandler);
+router.post('/prompt', promptHandler);
 
 
 export default router;
