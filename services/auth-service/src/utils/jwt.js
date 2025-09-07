@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const fallbackPprivateKeyPath = path.resolve(__dirname, '../../keys/private.key');
-const privateKeyPath = config.privateKeyPath || fallbackPprivateKeyPath
+const privateKeyPath = fallbackPprivateKeyPath
 const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
 const publicKeyPath = path.resolve(__dirname, '../../keys/public.key');
 const publicKey = fs.readFileSync(publicKeyPath, 'utf8');
