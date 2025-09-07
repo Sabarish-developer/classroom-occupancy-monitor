@@ -7,6 +7,8 @@ Since physical IoT sensors are not available, the project **simulates sensor dat
 
 ## 📐 System Architecture
 
+![Architecture](screenshots/architecture.png)
+
 ## 🚀 Features
 - 🔹 **Real-Time Occupancy Simulation** – Generates random occupancy values for classrooms.  
 - 🔹 **Azure Digital Twins Integration** – Models classrooms and tracks live occupancy.  
@@ -38,4 +40,42 @@ Since physical IoT sensors are not available, the project **simulates sensor dat
 
 
 📸 **Screenshots:**  
-_Add your UI screenshots here (Login Page, Dashboard, Admin Panel, etc.)_  
+
+### Landing Page
+![Landing Page](screenshots/landing.png)
+
+### Dashboard Page
+![Dashboard Page](screenshots/dashboard.png)
+
+### Gen-AI Page
+![Gen-AI Page](screenshots/genai.png)
+
+### Admin Page-1
+![Admin Page-1](screenshots/admin-1.png)
+
+### Admin Page-2
+![Admin Page-2](screenshots/admin-2.png)
+
+---
+
+## 🎯 Learning Goals
+- Understand how **Azure Digital Twins** can represent physical spaces.  
+- Implement **secure authentication** (OAuth + JWT + cookies) in a distributed system.  
+- Learn **real-time monitoring & logging** using Application Insights.  
+- Build **protected routes & responsive UI** in React.  
+- Use **GenAI (Google Gemini)** for intelligent reporting.  
+- Practice **multi-service architecture** using different Node.js services.  
+
+---
+
+## 📚 Future Improvements
+- Replace simulated data with **real IoT sensors**.  
+- Add **WebSockets for instant occupancy updates**.  
+- Extend GenAI service for **predictive analytics** (e.g., peak usage times).  
+- Add **detailed admin dashboards** for logs and telemetry insights.  
+
+---
+
+## 👨‍💻 Author
+- **[Sabarish M]** – College Project for Cloud + Security + GenAI with MERN  
+
